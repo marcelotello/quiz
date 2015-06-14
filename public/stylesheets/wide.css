@@ -1,5 +1,5 @@
-body{background:#009688;}
-#page-wrap:after{ content:"Wide Layout";}
+body{background:#FFFFFF;}
+#page-wrap:after{ color:black;content:"Wide Layout";}
 nav {float: left;width:15%;height:200px;}
 nav span{ margin: 0px 100px 0px 0px;}
 section {float:right; width:80%;height:200px;}
