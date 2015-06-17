@@ -4,8 +4,18 @@
   
   <head>
     <meta charset="utf-8"> <title> Preguntas </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+   <!-- Custom CSS -->
+    <link href="/stylesheets/full.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
+    <!-- Antiguo
+	<link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet'
           type='text/css'
           media='only screen and (min-width: 530px) and (min-device-width: 481px)'
@@ -15,36 +25,54 @@
           type='text/css'
           media='only screen and (max-width: 480px)'
           href='/stylesheets/smartphone.css'/>
+	-->
   </head>
 
 
-  <body>
-    <div id="page-wrap" >
-       
-        <header class="main" id="h1">
-          <h2 >Quiz:<span> el juego de las preguntas </span></h2>
-        </header>
-        <nav class="main" id="n1" role="navigation">
-          <span><a href="/"><i class="fa fa-home"></i> Inicio</a></span>
-          <span><a href="/quizes/question"><i class="fa fa-question-circle"></i> Preguntas</a></span>
-          <span><a href="/quizes/author"><i class="fa fa-copyright"></i> Autores</a></span>
-        </nav>
-      
-
-    <section class="main" id="s1">
-      <div><%- body %></div>
-    </section>
+  <body class="full">
   
-   
+  <nav  class="navbar navbar-inverse">
+  <div class="container-fluid">
+    
+	<div class="navbar-header">
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-user"></span>Quiz: El juego de las palabras</a>
+    </div>
+    
 
-
-    <footer class="main" id="f1">
-     <ul>
-      <li><a href="http://es.wikipedia.org/wiki/Quiz"><i class="fa fa-question-circle"></i> ¿Qué es un Quiz?</a></li>
-      <li><a href="https://github.com/marcelotello/quiz"><i class="fa fa-github"></i> GitHub</a></li>
-      
-    </ul>
-    </footer>
   </div>
+
+</nav>
+  
+<div class="container">
+	<div class="row">
+	
+	 <div class="col-sm-4">
+	
+      <div class="list-group" id="n1" role="navigation">
+		  <a href="/" class="list-group-item active "><i class="fa fa-home"></i> Inicio</a>
+		  <a href="/quizes" class="list-group-item"><i class="fa fa-question-circle"></i> Preguntas <span class="badge">5</span></a>
+		  <a href="/quizes/author" class="list-group-item"><i class="fa fa-copyright"></i> Autores</a>
+      </div>
+	 </div>
+	 <div class="col-sm-8">
+		<section class="main" id="s1">
+			<div><%- body %></div>
+		</section>
+	 </div>
+	</div>
+
+</div>
+  
+ <br>
+
+<nav  class="navbar navbar-inverse navbar-fixed-bottom">
+  <ul class="nav navbar-nav navbar-left">
+        <li><a href="http://es.wikipedia.org/wiki/Quiz"><i class="fa fa-question-circle"></i></span>¿Qué es un Quiz?</a></li>
+        <li><a href="https://github.com/marcelotello/quiz"><i class="fa fa-github-alt"></i>Visita el proyecto en GitHub</a></li>
+      </ul>
+</nav> 
+    
+   
+    
   </body>
 </html>

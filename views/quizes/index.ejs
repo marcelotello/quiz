@@ -1,0 +1,20 @@
+<% var i; for (i=0; i< quizes.length; i++) { %>
+<div class="panel panel-default">
+		<div class="panel-body">
+		<a href="quizes/<%=quizes[i].id %>"><%= quizes[i].pregunta %></a>
+		</div>
+</div>
+<%} %>
+<!--código antiguo
+ <table class="table table-hover">
+    
+    <tbody>
+	<% var i; for (i=0; i< quizes.length; i++) { %>
+      <tr class="info">
+        <td><a href="quizes/<%=quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
+	  </tr>
+	<%} %>
+	</tbody>
+</table>  
+    --> 
+

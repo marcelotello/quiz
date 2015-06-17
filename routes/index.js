@@ -5,8 +5,12 @@ var quizController=require('../controllers/quiz_controller');
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Quiz' });
 });
+// Autoload de comandos con :quizId
+router.param('quizId',quizController.load); //autoload: quizID
 
-router.get('/quizes/question',quizController.question);
-router.get('/quizes/answer'  ,quizController.answer);
+//Definicion de rutas de /quizes
+router.get('/quizes',		  quizController.index);
+router.get('/quizes/:quizId(\\d+)',quizController.show);
+router.get('/quizes/:quizId(\\d+)/answer'  ,quizController.answer);
 router.get('/quizes/author'  ,quizController.author);
 module.exports = router;

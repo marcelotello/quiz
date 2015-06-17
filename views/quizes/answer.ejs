@@ -1,3 +1,17 @@
 
-    <%= respuesta %>
-    <a href="/quizes/question">Inténtelo otra vez</a>
+    
+	
+	<%if (respuesta=="Correcto") { %>
+		<div class="alert alert-success">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>¡Correcto!</strong>  <a href="/quizes/<%=quiz.id%>">Inténtelo otra vez</a>
+  </div>
+	<% } %>
+	<%if (respuesta=="Incorrecto") { %>
+		<div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Incorrecto</strong>  <a href="/quizes/<%=quiz.id%>">Inténtelo otra vez</a>
+  </div>
+	<% } %>
+	
+	
