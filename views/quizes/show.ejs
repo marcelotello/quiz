@@ -1,6 +1,6 @@
 
-     <form method="get" action="/quizes/answer">
-        <p><i class="fa fa-question-circle"></i> Pregunta: <%=pregunta%><br></p>
+     <form method="get" action="/quizes/<%= quiz.id %>/answer">
+        <p><i class="fa fa-question-circle"></i> Pregunta: <%=quiz.pregunta%><br></p>
         <i class="fa fa-pencil"></i> <input type="text" name="respuesta" value="Responda aquí">
         <input type="submit" value="Enviar">
      </form>
