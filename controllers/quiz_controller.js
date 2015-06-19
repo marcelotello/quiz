@@ -1,8 +1,14 @@
-///GET /quizes/show
+
 var models = require('../models/models.js');
+var title = "Quiz";
 
 
-// GET /quizes
+
+exports.init = function (req,res)
+{
+	 var numregistros= models.registros;
+	 res.render('index', { title: title, numregistros:numregistros });
+}
 
 //Autoload - factoriza el código si ruta incluye : quizId
 exports.load = function (req,res,next,quizId){
@@ -19,10 +25,30 @@ exports.load = function (req,res,next,quizId){
 
 };
 exports.index=function(req,res){
-	models.Quiz.findAll().then(function(quizes){
-		res.render('quizes/index.ejs',{ quizes: quizes});
-
-	});
+	var quizes="";
+	console.log ("BD name="+models.registros);
+	if (req.query.search)
+	{
+		var buscar=req.query.search;
+		console.log(typeof req.query.search);
+		console.log(typeof buscar);
+		
+		buscar = buscar.replace(/ /g,"%");
+		
+		console.log ("Buscamos:"+buscar);
+		models.Quiz.findAll({where: ["pregunta like ?",'%'+ buscar+'%']}).then(function(quizes){
+			
+			for (var i=0; i<quizes.length; i++) {
+			console.log(quizes[i].pregunta);
+		}
+			res.render('quizes/index.ejs',{ quizes: quizes});
+		});
+	}
+	else
+	{
+			res.render('quizes/index.ejs',{ quizes: quizes});
+	}
+	
 	
 };
 

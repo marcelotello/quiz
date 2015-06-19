@@ -1,8 +1,24 @@
 
+
+<div class="panel panel-default">
+		<div class="panel-body">
+
+	     <form class="form-inline" role="form" method="get" action="/quizes">
+	      <div class="form-group">
+	        <i class="fa fa-question-circle"></i> Busque una pregunta: 
+	         <input type="text" name="search" value="texto a buscar..">
+	        <input type="submit" value="Buscar">
+	       </div>
+	     </form>
+	 </div>
+</div>
+
+
 <% var i; for (i=0; i< quizes.length; i++) { %>
 <div class="panel panel-default">
 		<div class="panel-body">
-		<a href="quizes/<%=quizes[i].id %>"><%= quizes[i].pregunta %></a>
+		<a href="quizes/<%=quizes[i].id %>"><%= i+1 +":"+quizes[i].pregunta %></a>
 		</div>
 </div>
 <%} %>
+
