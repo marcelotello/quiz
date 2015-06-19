@@ -1,6 +1,13 @@
 
-     <form method="get" action="/quizes/<%= quiz.id %>/answer">
-        <p><i class="fa fa-question-circle"></i> Pregunta: <%=quiz.pregunta%><br></p>
-        <i class="fa fa-pencil"></i> <input type="text" name="respuesta" value="Responda aquí">
-        <input type="submit" value="Enviar">
-     </form>
+     <div class="panel panel-default">
+		<div class="panel-body">
+
+	     <form class="form-inline" role="form" method="get" action="/quizes/<%= quiz.id %>/answer">
+	      <div class="form-group">
+	        <i class="fa fa-question-circle"></i> Pregunta: <%=quiz.pregunta%>
+	         <input type="text" name="respuesta" value="Responda aquí">
+	        <input type="submit" value="Enviar">
+	       </div>
+	     </form>
+	 </div>
+</div>

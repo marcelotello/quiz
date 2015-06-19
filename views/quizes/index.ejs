@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <% var i; for (i=0; i< quizes.length; i++) { %>
 <div class="panel panel-default">
 		<div class="panel-body">
@@ -6,23 +6,3 @@
 		</div>
 </div>
 <%} %>
-<!--código antiguo
- <table class="table table-hover">
-    
-    <tbody>
-	<% var i; for (i=0; i< quizes.length; i++) { %>
-      <tr class="info">
-        <td><a href="quizes/<%=quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
-	  </tr>
-	<%} %>
-	</tbody>
-</table>  
-    --> 
-=======
-<table>
-<% var i; for (i=0; i< quizes.length; i++) { %>
-	<tr><td><a href="quizes/<%=quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr>
-<%} %>
-</table>
->>>>>>> origin/master
-
