@@ -1,0 +1,21 @@
+<div class="panel panel-primary">
+<div class="panel-heading">Añadir Pregunta</div>
+<div class="panel-body">
+<label for="preg" >Pregunta:</label>
+<input type="text" class="form-control" id="preg" name="quiz[pregunta]" value="<%=quiz.pregunta %>"/> 
+<label for="resp" class="rem">Respuesta:</label>
+<input type="text" class="form-control" id="resp" name="quiz[respuesta]" value="<%=quiz.respuesta %>"/> 
+<label for="cat" >Categoría:</label>
+<select class="form-control" id="cat" name="quiz[categoria]" value="<%=quiz.categoria %>">
+    <option value="Otro" <% if (quiz.categoria =="Otro"){%> Selected<%} %>>Otro</option>
+    <option value="Humanidades"     <% if (quiz.categoria =="Humanidades"){%> Selected<%} %>  >Humanidades</option>
+    <option value="Ocio" <% if (quiz.categoria =="Ocio"){%> Selected<%} %>  >Ocio</option>
+    <option value="Ciencia" <% if (quiz.categoria =="Ciencia"){%> Selected<%} %>  >Ciencia</option>
+    <option value="Tecnología" <% if (quiz.categoria =="Tecnología"){%> Selected<%} %>  >Tecnología</option>
+  </select>
+
+
+<a href="/quizes"><button type="button" class="btn btn-danger btn-sm pull-right">Cancelar</button></a>
+<input type="submit" class="btn btn-success btn-sm pull-right" value="Salvar">
+</div>
+</div>

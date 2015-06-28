@@ -5,20 +5,47 @@
 
 	     <form class="form-inline" role="form" method="get" action="/quizes">
 	      <div class="form-group">
-	        <i class="fa fa-question-circle"></i> Busque una pregunta: 
+	        <span class="glyphicon glyphicon-search"></span>  Busque una pregunta: 
 	         <input type="text" name="search" value="texto a buscar..">
-	        <input type="submit" value="Buscar">
+	        <input type="submit" class="btn btn-info" value="Buscar">
 	       </div>
 	     </form>
 	 </div>
 </div>
+<div class="panel panel-primary">
+	<div class="panel-heading">Pregunta </div>
+		<div class="panel-body">
+<table class="table table-hover">
+    <tbody>
 
 
 <% var i; for (i=0; i< quizes.length; i++) { %>
-<div class="panel panel-default">
-		<div class="panel-body">
-		<a href="quizes/<%=quizes[i].id %>"><%= i+1 +":"+quizes[i].pregunta %></a>
-		</div>
-</div>
+
+      <tr>
+        <td><a href="quizes/<%=quizes[i].id %>"><%= i+1 +":"+quizes[i].pregunta %></a></td>
+        <td><a href="quizes/<%=quizes[i].id %>"><%= quizes[i].categoria %></a></td>
+        <td>
+        	<form method="post" action="quizes/<%=quizes[i].id %>?_method=delete">
+        		<button type="submit" <button class="btn btn-danger btn-sm pull-right" onClick="return confirm('Borrar:<%=quizes[i].pregunta %>');"><span class="glyphicon glyphicon-trash"> Borrar
+        		</button>
+    	 	</form>
+        	<a href="quizes/<%=quizes[i].id %>/edit"><button class="btn btn-primary btn-sm pull-right"><span class="glyphicon glyphicon-edit"> Editar</button></a>
+ 			
+
+        </td>
+        
+      </tr>
+      
+  
+
+
+
+
 <%} %>
+  </tbody>
+  </table>
+
+<a href="/quizes/new"><button type="button" class="btn btn-primary">Crear pregunta</button></a>
+</div>
+</div>
 

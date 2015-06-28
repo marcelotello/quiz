@@ -13,7 +13,7 @@
     <link href="/stylesheets/full.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	
+	<script type="text/javascript" src="/javascripts/bootstrap-confirmation.js"></script>
     <!-- Antiguo
 	<link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet'
@@ -53,7 +53,7 @@
 <div class="container">
 	<div class="row">
 	
-	 <div class="col-sm-4">
+	 <div class="col-sm-2">
 	
       <div class="list-group" id="n1" role="navigation">
 		  <a href="/" class="list-group-item active "><i class="fa fa-home"></i> Inicio</a>
@@ -61,8 +61,18 @@
 		  <a href="/quizes/author" class="list-group-item"><i class="fa fa-copyright"></i> Autores</a>
       </div>
 	 </div>
-	 <div class="col-sm-8">
+	 <div class="col-sm-10">
 		<section class="main" id="s1">
+      <%if (errors.length) { %>
+      
+        <%for (var i in errors){ %>
+          <div class="alert alert-danger">
+            <strong>Validación:</strong> <%=errors[i].message %> 
+          </div>
+          
+        <%} %>
+      
+      <%}%>
 			<div><%- body %></div>
 		</section>
 	 </div>
