@@ -1,20 +1,33 @@
+<style type = "text/css">
 
+.span3 {  
+    height: 600px !important;
+    overflow: scroll;
+}
+
+</style>
 
 <div class="panel panel-default">
 		<div class="panel-body">
 
 	     <form class="form-inline" role="form" method="get" action="/quizes">
 	      <div class="form-group">
-	        <span class="glyphicon glyphicon-search"></span>  Busque una pregunta: 
-	         <input type="text" name="search" value="texto a buscar..">
-	        <input type="submit" class="btn btn-info" value="Buscar">
+	        <label for="preg" > Busque una pregunta: </label> 
+	         <input type="text" class="form-control" name="search" value="texto a buscar..">
+	       
+           <button type="submit" class="btn btn-primary">
+            <i class="glyphicon glyphicon-search"></i> Buscar
+           </button>
 	       </div>
 	     </form>
 	 </div>
 </div>
-<div class="panel panel-primary">
-	<div class="panel-heading">Pregunta </div>
-		<div class="panel-body">
+<div class="panel panel-primary ">
+	<% if (session.user){%>
+	<div class="panel-heading">Pregunta <a href="/quizes/new"><button type="button" class="btn btn-primary btn-sm pull-right"><span class="glyphicon glyphicon-plus">Añadir</span></button></a> </div>
+	<%}%>
+	<div class="panel-body ">
+		<div class="span3">
 <table class="table table-hover">
     <tbody>
 
@@ -25,12 +38,13 @@
         <td><a href="quizes/<%=quizes[i].id %>"><%= i+1 +":"+quizes[i].pregunta %></a></td>
         <td><a href="quizes/<%=quizes[i].id %>"><%= quizes[i].categoria %></a></td>
         <td>
+			<% if (session.user){%>
         	<form method="post" action="quizes/<%=quizes[i].id %>?_method=delete">
         		<button type="submit" <button class="btn btn-danger btn-sm pull-right" onClick="return confirm('Borrar:<%=quizes[i].pregunta %>');"><span class="glyphicon glyphicon-trash"> Borrar
         		</button>
     	 	</form>
         	<a href="quizes/<%=quizes[i].id %>/edit"><button class="btn btn-primary btn-sm pull-right"><span class="glyphicon glyphicon-edit"> Editar</button></a>
- 			
+ 			<%}%>
 
         </td>
         
@@ -44,8 +58,9 @@
 <%} %>
   </tbody>
   </table>
+  </div>
 
-<a href="/quizes/new"><button type="button" class="btn btn-primary">Crear pregunta</button></a>
+
 </div>
 </div>
 

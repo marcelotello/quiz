@@ -1,13 +1,54 @@
 
-     <div class="panel panel-default">
+
+     <div class="panel panel-primary">
+	 <div class="panel-heading">Pregunta:</div>
 		<div class="panel-body">
 
 	     <form class="form-inline" role="form" method="get" action="/quizes/<%= quiz.id %>/answer">
-	      <div class="form-group">
+	     <div class="form-group">
 	        <i class="fa fa-question-circle"></i> Pregunta: <%=quiz.pregunta%>
 	         <input type="text" name="respuesta" value="Responda aquí">
-	        <input type="submit" value="Enviar">
+	         
+			  <input type="submit" class="btn btn-success btn-sm pull-right" value="Enviar">
+			  <a class="pull-right" href="/quizes/<%=quiz.id %>/comments/new"><button type="button" class="btn btn-primary btn-sm pull-right value="Añadir comentario"><span class="glyphicon glyphicon-plus">Añadir comentario</span></button></a> </div></a>
 	       </div>
 	     </form>
+	     
+
+	   
+
+
 	 </div>
+
+
 </div>
+
+
+
+ <div class="panel panel-info">
+      <div class="panel-heading">Comentarios</div>
+       
+	   <%for (index in quiz.comments){%>
+		<%if (quiz.comments[index].publicado || session.user){%>
+	     	<div class="panel-body">
+			  <%=quiz.comments[index].id%>:
+			  <%=quiz.comments[index].texto%>
+			  <% if (session.user && !quiz.comments[index].publicado){%>
+			 	<a href="/quizes/<%=quiz.id%>/comments/<%=quiz.comments[index].id%>/publish">
+			  <button class="btn btn-success btn-sm pull-right">Publicar</button></a>
+			  <%}%>
+			 </div>
+			 
+		<%}%>
+	    <%}%>
+      
+      
+    </div>
+
+
+	     
+  
+
+	    
+
+	     

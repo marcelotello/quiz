@@ -6,7 +6,7 @@
 <label for="resp" class="rem">Respuesta:</label>
 <input type="text" class="form-control" id="resp" name="quiz[respuesta]" value="<%=quiz.respuesta %>"/> 
 <label for="cat" >Categoría:</label>
-<select class="form-control" id="cat" name="quiz[categoria]" value="<%=quiz.categoria %>">
+<select class="form-control" id="cat"  name="quiz[categoria]" value="<%=quiz.categoria %>">
     <option value="Otro" <% if (quiz.categoria =="Otro"){%> Selected<%} %>>Otro</option>
     <option value="Humanidades"     <% if (quiz.categoria =="Humanidades"){%> Selected<%} %>  >Humanidades</option>
     <option value="Ocio" <% if (quiz.categoria =="Ocio"){%> Selected<%} %>  >Ocio</option>

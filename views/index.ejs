@@ -1,9 +1,10 @@
 
      
      
-	 <div class="panel-group">
+	<div class="panel-group">
     <div class="panel panel-default">
-      <div class="panel-heading"><h2>¡Bienvenidos a <%=title%>!<h2></div>
+      <div class="panel-heading"><h2>¡Bienvenidos a <%=title%>  <%if (session.user){%><span><%= session.user.username%>!</span><%}%> <h2></div>
+	 
       <div class="panel-body">¡El portal donde podrá crear sus propios juegos!. Actualmente hay <span class="label label-default"><%=numregistros%></span> preguntas.
 		<button type="button" class="btn btn-default pull-right"><a href="/quizes">¡Comenzar a jugar!</a></button></div>
     </div>
