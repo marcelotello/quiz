@@ -29,6 +29,9 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
+	if (!req.session.redir) {                                // si no existe lo inicializa
+             req.session.redir = '/';
+        }
   if (!req.path.match(/\/login|\/logout/)){
 	  console.log("REDIR="+req.path);
 	  req.session.redir=req.path;
