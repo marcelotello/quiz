@@ -51,9 +51,7 @@ exports.create=function(req,res){
 	var password = req.body.password;
 	var userController=require('./user_controller');
 	var timestamp = new Date();
-	console.log("login="+login);
-	console.log("pass="+password);
-	console.log("timestamp="+timestamp);
+	
 	
 	userController.autenticar(login,password,function(error,user){
 		console.log("ERROR="+error);
@@ -64,9 +62,9 @@ exports.create=function(req,res){
 		}
 
 		req.session.user = {id:user.id,username:user.username,logindate:new Date()};
-		console.log("REDIRSSESIONCONTROLLER"+req.session.redir);
+		
 	
-		console.log("SALGO DE create");
+		
 		res.redirect(req.session.redir.toString()); // redirect a paht anterior
 	});
 		

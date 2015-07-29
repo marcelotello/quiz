@@ -29,20 +29,19 @@ exports.load = function (req,res,next,quizId){
 };
 exports.index=function(req,res){
 	var quizes="";
-	console.log ("BD name="+models.registros);
+	
 	if (req.query.search)
 	{
 		var buscar=req.query.search;
-		console.log(typeof req.query.search);
-		console.log(typeof buscar);
+		
 		
 		buscar = buscar.replace(/ /g,"%");
 		
-		console.log ("Buscamos:"+buscar);
+		
 		models.Quiz.findAll({where: ["pregunta like ?",'%'+ buscar+'%']}).then(function(quizes){
 			
 			for (var i=0; i<quizes.length; i++) {
-			console.log(quizes[i].pregunta);
+			
 		}
 			res.render('quizes/index.ejs',{ quizes: quizes, errors:[]});
 		});
@@ -53,7 +52,7 @@ exports.index=function(req,res){
 		models.Quiz.findAll().then(function(quizes){
 			
 			for (var i=0; i<quizes.length; i++) {
-			console.log(quizes[i].pregunta);
+			
 		}
 			res.render('quizes/index.ejs',{ quizes: quizes,errors:[]});
 		});
@@ -156,6 +155,8 @@ exports.destroy = function (req,res){
 
 };
 
+
+
 /*
 exports.create=function(req,res){
 	
@@ -166,7 +167,7 @@ exports.create=function(req,res){
 			res.render('quizes/new',{quiz:quiz, errors:err.errors});
 	    }else{
 	//guarda en BD los campos pregunta y respuesta de quiz
-		console.log("paso sin error:");
+		
 			quiz.save ( {fields: ["pregunta", "respuesta"]}).then (function(){  res.redirect('/quizes')})
 		}
 
